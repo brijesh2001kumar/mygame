@@ -4,8 +4,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background-color: #87ceeb;
+    font-family: 'Arial', sans-serif;
 }
 
 .game-container {
@@ -14,7 +14,9 @@ body {
 }
 
 canvas {
-    border: 2px solid #000;
+    border: 5px solid #333;
+    border-radius: 10px;
+    background-color: #a0522d;
 }
 
 .score {
@@ -22,5 +24,30 @@ canvas {
     top: 10px;
     left: 10px;
     font-size: 24px;
-    color: green;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hole, .mole {
+    transition: transform 0.2s;
+}
+
+.hole:hover {
+    transform: scale(1.1);
+}
+
+.mole {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50%;
+    transition: transform 0.1s;
+}
+
+.mole:active {
+    transform: scale(0.9);
 }
