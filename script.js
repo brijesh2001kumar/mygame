@@ -14,6 +14,10 @@ let molePosition = { x: -1, y: -1 };
 let score = 0;
 let whacked = false;
 
+// Load dog image
+const dogImage = new Image();
+dogImage.src = 'dog.png'; // Path to your dog image
+
 // Create hole positions
 for (let y = 0; y < NUM_HOLES_Y; y++) {
     for (let x = 0; x < NUM_HOLES_X; x++) {
@@ -38,10 +42,7 @@ function drawHoles() {
 
 function drawMole(position) {
     if (position.x !== -1 && position.y !== -1) {
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.arc(position.x + HOLE_SIZE / 2, position.y + HOLE_SIZE / 2, MOLE_SIZE / 2, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.drawImage(dogImage, position.x, position.y, MOLE_SIZE, MOLE_SIZE);
     }
 }
 
@@ -79,4 +80,6 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+dogImage.onload = () => {
+    gameLoop();
+};
