@@ -30,14 +30,18 @@ function getRandomHole() {
 function drawHoles() {
     ctx.fillStyle = 'black';
     holes.forEach(pos => {
-        ctx.fillRect(pos.x, pos.y, HOLE_SIZE, HOLE_SIZE);
+        ctx.beginPath();
+        ctx.arc(pos.x + HOLE_SIZE / 2, pos.y + HOLE_SIZE / 2, HOLE_SIZE / 2, 0, Math.PI * 2);
+        ctx.fill();
     });
 }
 
 function drawMole(position) {
     if (position.x !== -1 && position.y !== -1) {
         ctx.fillStyle = 'red';
-        ctx.fillRect(position.x, position.y, MOLE_SIZE, MOLE_SIZE);
+        ctx.beginPath();
+        ctx.arc(position.x + HOLE_SIZE / 2, position.y + HOLE_SIZE / 2, MOLE_SIZE / 2, 0, Math.PI * 2);
+        ctx.fill();
     }
 }
 
